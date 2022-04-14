@@ -17,6 +17,8 @@ class GameControl {
 
     //创建一个属性表示游戏是否还在
     isLive: boolean = true;
+
+
 //游戏开始
     constructor() {
         this.snake = new Snake();
@@ -28,12 +30,40 @@ class GameControl {
     init() {
         //绑定键盘按键按下事件
         document.addEventListener('keydown', this.keydownHandler.bind(this));
+        const button = document.getElementsByTagName('button');
+        for (let i = 0; i < button.length-1; i++) {
+            button[i].addEventListener('click', this.buttonHandler.bind(this, button[i].innerHTML));
+        }
+        const restartButton = document.getElementById('restart') as HTMLButtonElement;
+        restartButton.addEventListener('click', () => { location.reload()});
         this.run();
 
     }
+    buttonHandler(action: string): void {
+        const tip = document.getElementById('tip') as HTMLDivElement;
+        tip.style.visibility = 'hidden';
+        switch (action) {
+            case '上':
+                this.direction = 'ArrowUp';
+                break;
+            case '下':
+                this.direction = 'ArrowDown';
+                break;
+            case '左':
+                this.direction = 'ArrowLeft';
+                break;
+            case '右':
+                this.direction = 'ArrowRight';
+                break;
+            default:
+                break;
+        }
+    }
     keydownHandler(e: KeyboardEvent): void {
+        const tip = document.getElementById('tip') as HTMLDivElement;
+        tip.style.visibility = 'hidden';
         //检查是否是方向键
-
+        
         this.direction = e.key;
     }
 
@@ -69,8 +99,11 @@ class GameControl {
             this.snake.X = X;
             this.snake.Y = Y;
         }catch (e)  {
-            alert((e as Error).message + '! Game Over!');
-            this.isLive = false
+            alert((e as Error).message + '! Game Over! 请重新开始游戏！')
+            this.isLive = false;
+            let restart = confirm('是否重新开始游戏？');
+            console.log(restart)
+            restart && location.reload();
         }
         this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1)*30);
     }

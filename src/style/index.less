@@ -1,6 +1,6 @@
 
 //设置变量
-@bg-color: #b7d4a8;
+@bg-color: #a6d0eb;
 *{
     padding: 0;
     margin: 0;
@@ -12,7 +12,8 @@ body{
 #game{
     width:360px;
     height:420px;
-    border: solid black 10px;
+    border: solid transparent 2px;
+    box-shadow: 2px 2px 2px 2px #c9c9c9;
     border-radius: 20px; 
     margin: 100px auto;
     background-color: @bg-color;
@@ -20,6 +21,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    position: relative;
     #stage{
         width: 304px;
         height: 304px;
@@ -58,4 +60,58 @@ body{
         width: 300px;
         justify-content: space-between;
     }   
+}
+
+#controls{
+    width:360px;
+    height:100px;
+    margin: -60px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    
+    button{
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        font-weight: 500;
+        background-color: #a6d0eb;
+        border: solid transparent 2px;
+        box-shadow: 1px 1px 1px 1px #c9c9c9;
+        border-radius: 20%;
+        &:hover,
+        &:focus{
+            background-color: #98c1df;
+            color: #ecf2f6;
+        }
+    }
+    .left{
+        margin-left:10%;
+    }
+    #left{
+        transform: translateX(-100%);
+    }
+    
+    #restart{
+        width:60px;
+        height:60px;
+        &:hover,
+        &:focus{
+            background-color: #98c1df;
+            color: black;
+        }
+    }
+    
+}
+#tip{
+    // position: relative;
+    width:360px;
+    bottom: 50px;
+    font-size: 10px;
+    color: #8fc4e8;
+    display: flex;
+    margin:-130px auto;
+    align-items: center;
+    justify-content: space-around;
 }

@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>贪吃蛇</title>
 </head>
+
 <body>
     <!-- 创建游戏的主容器 -->
     <div id="game">
-
-        
-            <!-- 创建游戏的背景 -->
-            <div id="stage">
-                <!-- 创建游戏的蛇 -->
-                <div id="snake">
-                    <!-- 创建游戏的蛇头 -->
-                    <div></div>
-
-                </div>
-                <!-- 创建游戏的食物 -->
-                <div id="food">
-                    <!-- 创建食物 -->
-                    <div ></div>
-                    <div ></div>
-                    <div ></div>
-                    <div ></div>
-                </div>
+        <!-- 创建游戏的背景 -->
+        <div id="stage">
+            <!-- 创建游戏的蛇 -->
+            <div id="snake">
+                <!-- 创建游戏的蛇头 -->
+                <div></div>
             </div>
+            <!-- 创建游戏的食物 -->
+            <div id="food">
+                <!-- 创建食物 -->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
 
-            <div id="score-panel">
-                <div class="game-score">SCORE：<span id="score">0</span></div>
-                <div class="game-level">LEVEL: <span id="level">1</span></div>
-            </div>  
+        <div id="score-panel">
+            <div class="game-score">SCORE：<span id="score">0</span></div>
+            <div class="game-level">LEVEL: <span id="level">1</span></div>
+        </div>
     </div>
+    <div id="controls">
+        <div class="left">
+            <div class="first">
+                <button id="top">上</button>
+            </div>
+            <div class="second"><button id="left">左</button><button id="right">右</button></div>
+            <div class="third">
+                <button id="bottom">下</button>
+            </div>
+        </div>
+        <div class="right">
+            <button id="restart" >重新开始</button>
+        </div>  
+    </div>
+    <div id="tip">方向键或左下角按钮控制方向</div>
 </body>
 
 </html>
